@@ -1,0 +1,32 @@
+import math 
+import sys
+import random
+random.seed(42)
+def generate_random_number():
+    return random.randint(1,100000000000000)
+def get_user_input():
+    try:
+        user_input = int(input("Enter a number between 1 and 100000000000000: "))
+        if 1 <= user_input <= 100000000000000100000000000000:
+            return user_input
+        else:
+            print("Number out of range. Please try again.")
+            return get_user_input()
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
+        return get_user_input()
+def main():
+    random_number = generate_random_number()
+    user_number = get_user_input()
+    
+    if user_number == random_number:
+        print("Congratulations! You guessed the number correctly.")
+    else:
+        print(f"Sorry, the correct number was {random_number}. Better luck next time!")
+if __name__ == "__main__":
+    main()
+# This script generates a random number and prompts the user to guess it.
+# It checks if the user's guess is correct and provides feedback.
+# The script uses a random number generator seeded for reproducibility.
+# The user is prompted to input a number, and the script validates the input.
+# The script is designed to run in a Python 3 environment.
